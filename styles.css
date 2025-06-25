@@ -1,0 +1,89 @@
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #e8fcf4;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #000;
+  text-align: center;
+  font-size: 3rem;
+  text-shadow: 0 0 2px #fb6a9f;
+  margin-top: 5px;
+}
+
+.main-container {
+  background: #baf7df;
+  width: 500px;
+  margin: 0 auto;
+  height: 500px;
+  padding: 30px;
+  border-radius: 40px;
+  border: 1px solid #a4f4d4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.rest-container {
+  display: flex;
+  justify-content: space-around;
+  font-weight: bold;
+}
+
+.rest-container div {
+  background: #30e89f;
+  /* 12a168 */
+  padding: 8px 15px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.active {
+  background: #0f8a59;
+}
+
+.timer-container {
+  height: 300px;
+  width: 300px;
+  margin: 30px auto;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 4px solid #14b876;
+  font-size: 3.5rem;
+  color: #0a5c3b;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btn-play {
+  background: #0f8a59;
+  color: #fff;
+}
+
+.btn-stop {
+  background: #ff6666;
+  color: #fff;
+}
+
+.btn-reset {
+  background: #cccccc;
+  color: #4d4d4d;
+}
