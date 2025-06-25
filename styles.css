@@ -1,31 +1,32 @@
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #e8fcf4;
+  background: #baf7df;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto Mono", monospace;
 }
 
 h1 {
-  color: #000;
+  color: #0a5c3b;
   text-align: center;
   font-size: 3rem;
-  text-shadow: 0 0 2px #fb6a9f;
+  text-shadow: 0 0 5px #fff;
   margin-top: 5px;
 }
 
 .main-container {
-  background: #baf7df;
+  background: #d2f9e9;
   width: 500px;
   margin: 0 auto;
   height: 500px;
   padding: 30px;
-  border-radius: 40px;
+  border-radius: 30px;
   border: 1px solid #a4f4d4;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  box-shadow: 1px 5px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .rest-container {
@@ -34,16 +35,21 @@ h1 {
   font-weight: bold;
 }
 
-.rest-container div {
-  background: #30e89f;
-  /* 12a168 */
+.promodoro-box,
+.short-rest-box,
+.long-rest-box {
   padding: 8px 15px;
-  border-radius: 10px;
-  color: #fff;
+  border-radius: 5px;
+  color: #14b876;
+  border: 1px solid #14b876;
+  cursor: pointer;
 }
 
-.active {
-  background: #0f8a59;
+.active-container {
+  background: #12a168;
+  color: #fff;
+  border: none;
+  border: 1px solid #14b876;
 }
 
 .timer-container {
@@ -71,19 +77,28 @@ h1 {
   border: none;
   font-size: 1rem;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  font-family: "Roboto Mono", monospace;
 }
 
-.btn-play {
-  background: #0f8a59;
+.btn:active {
+  transform: translateY(5px) scale(0.96);
+}
+
+.btn-start {
+  background: #12a168;
   color: #fff;
+  box-shadow: 0 2px 3px #75f0bf;
 }
 
 .btn-stop {
   background: #ff6666;
   color: #fff;
+  box-shadow: 0 2px 3px #ff9999;
 }
 
 .btn-reset {
   background: #cccccc;
   color: #4d4d4d;
+  box-shadow: 0 2px 3px #b3b3b3;
 }
