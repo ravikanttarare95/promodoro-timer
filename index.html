@@ -29,7 +29,7 @@
             background: #d1faea;
             border-radius: 20px;
             padding: 30px;
-            display: flex;
+            display: none;
             flex-direction: column;
             margin: 20px;
             box-shadow: 0 5px 20px rgb(0, 0, 0, 0.2);
@@ -71,6 +71,30 @@
         #cross-icon:hover {
             opacity: 0.8;
         }
+
+        .time-alert-box {
+            position: relative;
+            padding: 40px 10px 20px;
+            background: #FFF9C4;
+            border-radius: 10px;
+            width: 300px;
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .time-alert-box p {
+            font-weight: bold;
+            font-size: 2rem;
+            color: #0a5c3b;
+        }
+
+        #bell-icon {
+            width: 70px;
+            position: absolute;
+            top: -35px;
+        }
     </style>
 </head>
 
@@ -82,6 +106,11 @@
             <p id="short-alert">Short Rest</p>
             <p id="long-alert">Long Rest</p>
             <img src="./images/cross-icon.png" alt="Cross Icon" id="cross-icon">
+        </div>
+        <div class="time-alert-box">
+            <img src="./images/notification-bell.png" alt="Bell Icon" id="bell-icon">
+            <p>Time's Up</p>
+            <button class="btn btn-secondary btn-md btn-ta-close">Close</button>
         </div>
     </div>
 
@@ -104,7 +133,7 @@
                 <p id="sec">00</p>
             </div>
             <div class="buttons-container">
-                <button class="btn secondary btn-stop">Stop</button>
+                <button class="btn btn-secondary btn-stop">Stop</button>
                 <button class="btn btn-reset">Reset</button>
                 <button class="btn btn-start">Start</button>
             </div>
