@@ -67,4 +67,6 @@ startButton.addEventListener("click", () => {
   }
 });
 
-stopButton.addEventListener("click", () => {});
+stopButton.addEventListener("click", () => {
+  clearInterval(countDown);
+});
