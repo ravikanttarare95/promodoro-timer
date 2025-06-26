@@ -91,8 +91,13 @@ startButton.addEventListener("click", () => {
 
     countDown = setInterval(() => {
       totalSeconds -= 1;
-      min.innerText = `${Math.floor(totalSeconds / 60)}`;
-      sec.innerText = `${totalSeconds % 60}`;
+      min.innerText = `${String(Math.floor(totalSeconds / 60)).padStart(
+        2,
+        "0"
+      )}`;
+      sec.innerText = `${String(totalSeconds % 60).padStart(2, "0")}`;
+
+      //padStart() is a method not function.It can only be applied to strings
 
       if (totalSeconds === 0) {
         clearInterval(countDown);
