@@ -10,12 +10,14 @@ const startButton = document.querySelector(".btn-start");
 const stopButton = document.querySelector(".btn-stop");
 const resetButton = document.querySelector(".btn-reset");
 
+let type;
 promodoroBox.addEventListener("click", () => {
   promodoroBox.classList.add("active-container");
   shortRestBox.classList.remove("active-container");
   longRestBox.classList.remove("active-container");
   min.innerText = "25";
   sec.innerText = "00";
+  type = "promo";
 });
 
 shortRestBox.addEventListener("click", () => {
@@ -25,6 +27,7 @@ shortRestBox.addEventListener("click", () => {
   clearInterval(countDown);
   min.innerText = "05";
   sec.innerText = "00";
+  type = "short";
 });
 
 longRestBox.addEventListener("click", () => {
@@ -34,13 +37,30 @@ longRestBox.addEventListener("click", () => {
   clearInterval(countDown);
   min.innerText = "15";
   sec.innerText = "00";
+  type = "long";
 });
 
-resetButton.addEventListener("click", () => {
+resetButton.addEventListener("click", function sd() {
   clearInterval(countDown);
-  min.innerText = "00";
-  sec.innerText = "00";
+  reset();
 });
+
+function reset() {
+  switch (type) {
+    case "promo":
+      min.innerText = "25";
+      sec.innerText = "00";
+      break;
+    case "short":
+      min.innerText = "05";
+      sec.innerText = "00";
+      break;
+    case "long":
+      min.innerText = "15";
+      sec.innerText = "00";
+      break;
+  }
+}
 
 let countDown;
 
@@ -50,7 +70,9 @@ startButton.addEventListener("click", () => {
     (min.innerText == "0" && sec.innerText == "00") ||
     sec.innerText == "0"
   ) {
-    return;
+    return alert(`
+      Select:
+      Promodoro / Short Rest / Long Rest`);
   } else {
     let totalSeconds = parseInt(min.innerText) * 60 + parseInt(sec.innerText);
 
@@ -62,6 +84,7 @@ startButton.addEventListener("click", () => {
       if (totalSeconds === 0) {
         clearInterval(countDown);
         alert("Time UP");
+        reset();
       }
     }, 1000);
   }
