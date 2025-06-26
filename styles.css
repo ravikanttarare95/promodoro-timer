@@ -6,7 +6,8 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #baf7df;
+background: #BAF7DF;
+background: linear-gradient(90deg, #d1faea 0%, #ffffff 100%);
   font-family: "Roboto Mono", monospace;
 }
 
@@ -23,7 +24,7 @@ h1 {
 }
 
 .main-container {
-  background: #e9fcf4;
+  background: #fff;
   max-width: 500px;
   margin: 0 auto;
   padding: 25px;
