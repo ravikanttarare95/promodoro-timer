@@ -4,22 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Promodoro Timer</title>
+    <title>PomoZen</title>
     <link rel="stylesheet" href="./styles.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
         rel="stylesheet">
+    <style>
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            background: rgb(0, 0, 0, 0.5);
+            height: 100vh;
+            display: none;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .start-alert {
+            width: 350px;
+            background: #d1faea;
+            border-radius: 20px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            box-shadow: 0 5px 20px rgb(0, 0, 0, 0.2);
+            position: relative;
+        }
+
+        .start-alert h2 {
+            font-size: 1.5rem;
+            color: #0a5c3b;
+            margin-bottom: 15px;
+        }
+
+        .start-alert p {
+            color: #0a5c3b;
+            padding: 10px 20px;
+            border: 1px solid #0a5c3b;
+            border-radius: 5px;
+            margin: 15px 0;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .start-alert p:hover {
+            background: #12a168;
+            color: #fff;
+            border: none;
+            border: 1px solid #14b876;
+        }
+
+        #cross-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            width: 20px;
+            opacity: 0.6;
+            cursor: pointer;
+        }
+
+        #cross-icon:hover {
+            opacity: 0.8;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="overlay">
+        <div class="start-alert">
+            <h2>Select👇🏻</h2>
+            <p id="pomo-alert">Pomodoro</p>
+            <p id="short-alert">Short Rest</p>
+            <p id="long-alert">Long Rest</p>
+            <img src="./images/cross-icon.png" alt="Cross Icon" id="cross-icon">
+        </div>
+    </div>
+
     <div class="outer-container">
-        <h1>Promodoro Timer</h1>
+        <h1>PomoZen</h1>
         <div class="main-container">
             <div class="rest-container">
-                <div class="promodoro-box">
-                    Promodoro
+                <div class="pomodoro-box">
+                    Pomodoro
                 </div>
                 <div class="short-rest-box">
                     Short Rest
@@ -33,7 +104,7 @@
                 <p id="sec">00</p>
             </div>
             <div class="buttons-container">
-                <button class="btn btn-stop">Stop</button>
+                <button class="btn secondary btn-stop">Stop</button>
                 <button class="btn btn-reset">Reset</button>
                 <button class="btn btn-start">Start</button>
             </div>

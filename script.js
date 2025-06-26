@@ -1,7 +1,7 @@
 const min = document.getElementById("min");
 const sec = document.getElementById("sec");
 
-const promodoroBox = document.querySelector(".promodoro-box");
+const pomodoroBox = document.querySelector(".pomodoro-box");
 const shortRestBox = document.querySelector(".short-rest-box");
 const longRestBox = document.querySelector(".long-rest-box");
 
@@ -11,34 +11,46 @@ const stopButton = document.querySelector(".btn-stop");
 const resetButton = document.querySelector(".btn-reset");
 
 let type;
-promodoroBox.addEventListener("click", () => {
-  promodoroBox.classList.add("active-container");
+pomodoroBox.addEventListener("click", () => {
+  choosePomodoro();
+});
+
+shortRestBox.addEventListener("click", () => {
+  chooseShortRest();
+});
+
+longRestBox.addEventListener("click", () => {
+  chooseLongRest();
+});
+
+function choosePomodoro() {
+  pomodoroBox.classList.add("active-container");
   shortRestBox.classList.remove("active-container");
   longRestBox.classList.remove("active-container");
   min.innerText = "25";
   sec.innerText = "00";
-  type = "promo";
-});
+  type = "pomo";
+}
 
-shortRestBox.addEventListener("click", () => {
+function chooseShortRest() {
   shortRestBox.classList.add("active-container");
   longRestBox.classList.remove("active-container");
-  promodoroBox.classList.remove("active-container");
+  pomodoroBox.classList.remove("active-container");
   clearInterval(countDown);
   min.innerText = "05";
   sec.innerText = "00";
   type = "short";
-});
+}
 
-longRestBox.addEventListener("click", () => {
+function chooseLongRest() {
   longRestBox.classList.add("active-container");
   shortRestBox.classList.remove("active-container");
-  promodoroBox.classList.remove("active-container");
+  pomodoroBox.classList.remove("active-container");
   clearInterval(countDown);
   min.innerText = "15";
   sec.innerText = "00";
   type = "long";
-});
+}
 
 resetButton.addEventListener("click", function sd() {
   clearInterval(countDown);
@@ -47,7 +59,7 @@ resetButton.addEventListener("click", function sd() {
 
 function reset() {
   switch (type) {
-    case "promo":
+    case "pomo":
       min.innerText = "25";
       sec.innerText = "00";
       break;
@@ -63,16 +75,14 @@ function reset() {
 }
 
 let countDown;
-
+const overlay = document.querySelector(".overlay");
 startButton.addEventListener("click", () => {
   if (
     min.innerText == "00" ||
     (min.innerText == "0" && sec.innerText == "00") ||
     sec.innerText == "0"
   ) {
-    return alert(`
-      Select:
-      Promodoro / Short Rest / Long Rest`);
+    overlay.style.display = "flex";
   } else {
     let totalSeconds = parseInt(min.innerText) * 60 + parseInt(sec.innerText);
 
@@ -92,4 +102,21 @@ startButton.addEventListener("click", () => {
 
 stopButton.addEventListener("click", () => {
   clearInterval(countDown);
+});
+
+document.getElementById("pomo-alert").addEventListener("click", () => {
+  choosePomodoro();
+  overlay.style.display = "none";
+});
+document.getElementById("short-alert").addEventListener("click", () => {
+  chooseShortRest();
+  overlay.style.display = "none";
+});
+document.getElementById("long-alert").addEventListener("click", () => {
+  chooseLongRest();
+  overlay.style.display = "none";
+});
+
+document.getElementById("cross-icon").addEventListener("click", () => {
+  overlay.style.display = "none";
 });
