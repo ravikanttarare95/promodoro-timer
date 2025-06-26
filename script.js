@@ -37,8 +37,8 @@ function chooseShortRest() {
   longRestBox.classList.remove("active-container");
   pomodoroBox.classList.remove("active-container");
   clearInterval(countDown);
-  min.innerText = "0";
-  sec.innerText = "002";
+  min.innerText = "05";
+  sec.innerText = "00";
   type = "short";
 }
 
