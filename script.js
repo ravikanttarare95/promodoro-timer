@@ -76,6 +76,8 @@ function reset() {
 
 let countDown;
 const overlay = document.querySelector(".overlay");
+const startAlertBox = document.querySelector(".start-alert-box");
+const timeAlertBox = document.querySelector(".time-alert-box");
 startButton.addEventListener("click", () => {
   if (
     min.innerText == "00" ||
@@ -83,6 +85,7 @@ startButton.addEventListener("click", () => {
     sec.innerText == "0"
   ) {
     overlay.style.display = "flex";
+    startAlertBox.style.display = "flex";
   } else {
     let totalSeconds = parseInt(min.innerText) * 60 + parseInt(sec.innerText);
 
@@ -93,7 +96,8 @@ startButton.addEventListener("click", () => {
 
       if (totalSeconds === 0) {
         clearInterval(countDown);
-        alert("Time UP");
+        overlay.style.display = "flex";
+        timeAlertBox.style.display = "flex";
         reset();
       }
     }, 1000);
@@ -107,16 +111,25 @@ stopButton.addEventListener("click", () => {
 document.getElementById("pomo-alert").addEventListener("click", () => {
   choosePomodoro();
   overlay.style.display = "none";
+  startAlertBox.style.display = "none";
 });
 document.getElementById("short-alert").addEventListener("click", () => {
   chooseShortRest();
   overlay.style.display = "none";
+  startAlertBox.style.display = "none";
 });
 document.getElementById("long-alert").addEventListener("click", () => {
   chooseLongRest();
   overlay.style.display = "none";
+  startAlertBox.style.display = "none";
 });
 
 document.getElementById("cross-icon").addEventListener("click", () => {
   overlay.style.display = "none";
+  startAlertBox.style.display = "none";
+});
+
+document.getElementById("btn-ta-close").addEventListener("click", () => {
+  overlay.style.display = "none";
+  startAlertBox.style.display = "none";
 });

@@ -24,7 +24,7 @@
             align-items: center;
         }
 
-        .start-alert {
+        .start-alert-box {
             width: 350px;
             background: #d1faea;
             border-radius: 20px;
@@ -36,13 +36,13 @@
             position: relative;
         }
 
-        .start-alert h2 {
+        .start-alert-box h2 {
             font-size: 1.5rem;
             color: #0a5c3b;
             margin-bottom: 15px;
         }
 
-        .start-alert p {
+        .start-alert-box p {
             color: #0a5c3b;
             padding: 10px 20px;
             border: 1px solid #0a5c3b;
@@ -52,7 +52,7 @@
             cursor: pointer;
         }
 
-        .start-alert p:hover {
+        .start-alert-box p:hover {
             background: #12a168;
             color: #fff;
             border: none;
@@ -100,7 +100,7 @@
 
 <body>
     <div class="overlay">
-        <div class="start-alert">
+        <div class="start-alert-box">
             <h2>Select👇🏻</h2>
             <p id="pomo-alert">Pomodoro</p>
             <p id="short-alert">Short Rest</p>
@@ -110,7 +110,7 @@
         <div class="time-alert-box">
             <img src="./images/notification-bell.png" alt="Bell Icon" id="bell-icon">
             <p>Time's Up</p>
-            <button class="btn btn-secondary btn-md btn-ta-close">Close</button>
+            <button class="btn btn-secondary btn-md" id="btn-ta-close">Close</button>
         </div>
     </div>
 
