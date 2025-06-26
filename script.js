@@ -45,20 +45,26 @@ resetButton.addEventListener("click", () => {
 let countDown;
 
 startButton.addEventListener("click", () => {
-  if (min || sec) {
+  if (
+    min.innerText == "00" ||
+    (min.innerText == "0" && sec.innerText == "00") ||
+    sec.innerText == "0"
+  ) {
+    return;
+  } else {
     let totalSeconds = parseInt(min.innerText) * 60 + parseInt(sec.innerText);
 
     countDown = setInterval(() => {
       totalSeconds -= 1;
       min.innerText = `${Math.floor(totalSeconds / 60)}`;
       sec.innerText = `${totalSeconds % 60}`;
-      console.log(countDown);
-      if (totalSeconds === 0) clearInterval(countDown);
+
+      if (totalSeconds === 0) {
+        clearInterval(countDown);
+        alert("Time UP");
+      }
     }, 1000);
   }
 });
 
-stopButton.addEventListener("click", () => {
-  min.innerText = "00";
-  sec.innerText = "00";
-});
+stopButton.addEventListener("click", () => {});
